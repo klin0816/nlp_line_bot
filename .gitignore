@@ -1,0 +1,5 @@
+# ignore my key
+key.py
+
+# other
+__pycache__
