@@ -23,7 +23,7 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
+'''from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
@@ -36,7 +36,8 @@ from linebot.models import (
     FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent,
-)
+)'''
+from linebot.models import *
 
 import json
 from snownlp import SnowNLP
@@ -171,9 +172,8 @@ def message_text(event):
     rand = random.randint(0,1)
 
     BM25 = cal_BM25(data, segment_list) # calculate the acc score between segment_list with every question(question_word)
-    print('BM25')
     BM25_max= BM25.index(max(BM25)) # find the index of list which acc score is the best
-    '''if state == 0:
+    if state == 0:
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='介紹： ' + data[BM25_max]['introduce'])
@@ -188,78 +188,24 @@ def message_text(event):
             TextSendMessage(text='地址： ' + data[BM25_max]['a_address'][rand])
         )
     elif state == 2:
-        line_bot_api.reply_message(
+        a = str(data[BM25_max]['f_image'][0])
+        b = str(data[BM25_max]['f_image'][1])
+        carousel_template = CarouselTemplate(columns=[
+	    CarouselColumn(thumbnail_image_url=a, text=' ', title=data[BM25_max]['food'][0], actions=[
+                URIAction(label='Google Maps', uri=data[BM25_max]['f_link'][0]),
+            ]),
+            CarouselColumn(thumbnail_image_url=b, text=' ', title=data[BM25_max]['food'][1], actions=[
+                URIAction(label='Google Maps', uri=data[BM25_max]['f_link'][1]),
+            ]),
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='Carousel alt text', template=carousel_template)
+        line_bot_api.reply_message(event.reply_token, template_message)   
+        
+        '''line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='美食： ' + data[BM25_max]['food'][rand])
-        )
-    '''
-    '''line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='地址： ' + data[BM25_max]['f_address'][rand])
-    )'''
-    carousel_template = CarouselTemplate(columns=[
-        CarouselColumn(text='hoge1', title='fuga1', actions=[
-            URIAction(label='Go to line.me', uri='https://line.me'),
-            PostbackAction(label='ping', data='ping')
-        ]),
-        CarouselColumn(text='hoge2', title='fuga2', actions=[
-            PostbackAction(label='ping with text', data='ping', text='ping'),
-            MessageAction(label='Translate Rice', text='米')
-        ]),
-    ])
-    template_message = TemplateSendMessage(
-        alt_text='Carousel alt text', template=carousel_template)
-    line_bot_api.reply_message(event.reply_token, template_message)    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+        )'''
 
 if __name__ == "__main__":
     arg_parser = ArgumentParser(

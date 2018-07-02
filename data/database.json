@@ -3,9 +3,44 @@
         "question": "孔子廟",
         "introduce": "臺南孔子廟是臺灣第一座孔廟，位於臺南市中西區（原為承天府寧南坊），建於明鄭永曆十九年（西元1665年），為臺灣最早的文廟。清領初期是全臺童生唯一入學之所，因此稱「全臺首學」。臺南孔廟於民國七十二年（1983年）12月28日公告為祠廟類國家一級古蹟，現為國定古蹟。",
         "attraction": ["國立台南文學館", "林百貨"],
-        "a_address": ["台南市中西區中正路1號","700台南市中西區忠義路二段63號"],
+        "a_address": ["台南市中西區中正路1號","台南市中西區忠義路二段63號"],
         "food": ["莉莉水果店", "窄門咖啡館"],
-        "f_address": ["700台南市中西區府前路一段199號", "700台南市中西區南門路67號"]
+        "f_address": ["台南市中西區府前路一段199號", "台南市中西區南門路67號"],
+        "f_link": ["https://goo.gl/maps/R4w4SDkMdT82","https://goo.gl/maps/yj61mnUBAw32"],
+        "f_image": ["https://farm4.staticflickr.com/3733/9707447377_d8dfa1e3b7_o.jpg","https://pic.pimg.tw/tainanlohas/1400416699-400142759_l.jpg"],
+        "time": 1
+    },
+    {
+        "question": "國立台南文學館",
+        "introduce": "國立臺灣文學館（簡稱臺灣文學館、文學館或臺文館），是中華民國文化部的所屬機關，也是臺灣首座國家級文學館，主要蒐集、整理、典藏與研究臺灣近代文學史料。館址位於臺南市中西區的國定古蹟原臺南州廳，另外尚有文化部文化資產局文化資產保存研究中心在此辦公。",
+        "attraction": ["孔子廟","林百貨"],
+        "a_address":["台南市中西區南門路2號","台南市中西區忠義路二段63號"],
+        "food": ["莉莉水果店", "窄門咖啡館"],
+        "f_address":["台南市中西區府前路一段199號", "台南市中西區南門路67號"],
+        "f_link": ["https://goo.gl/maps/R4w4SDkMdT82","https://goo.gl/maps/yj61mnUBAw32"],
+        "f_image": ["http://farm4.staticflickr.com/3733/9707447377_d8dfa1e3b7_o.jpg","http://pic.pimg.tw/tainanlohas/1400416699-400142759_l.jpg"],
+        "time": 1
+    },
+    {
+        "question": "林百貨",
+        "introduce": "林百貨，俗稱五層樓仔，是位於臺灣臺南市中西區的百貨公司，於日治中期的1932年12月5日開幕，座落於日治時期的臺南市末廣町2丁目，為臺灣第二間、以及南臺灣第一間百貨公司，也是臺灣唯一設有神社的百貨公司。開幕日僅比當時臺北市榮町的菊元百貨晚兩天，兩者亦並列為臺灣日治時期南北兩大百貨。",
+        "attraction": ["孔子廟","國立台南文學館"],
+        "a_address":["台南市中西區南門路2號","台南市中西區中正路1號"],
+        "food": ["莉莉水果店", "窄門咖啡館"],
+        "f_address":["台南市中西區府前路一段199號", "台南市中西區南門路67號"],
+        "f_link": ["https://goo.gl/maps/R4w4SDkMdT82","https://goo.gl/maps/yj61mnUBAw32"],
+        "f_image": ["http://farm4.staticflickr.com/3733/9707447377_d8dfa1e3b7_o.jpg","http://pic.pimg.tw/tainanlohas/1400416699-400142759_l.jpg"],
+        "time": 2
+    },
+    {
+        "question": "莉莉水果店",
+        "introduce": "莉莉水果店",
+        "time": 1
+    },
+    {
+        "question": "窄門咖啡館",
+        "introduce": "窄門咖啡館",
+        "time": 2
     },
     {
         "question": "吳園藝文中心",
@@ -13,7 +48,42 @@
         "attraction": ["赤崁樓","天后宮"],
         "a_address":["台南市中西區民族路二段212號","台南市中西區永福路二段227巷18號"],
         "food": ["再發號肉粽","甘單咖啡"],
-        "f_address":["台南市中西區民權路二段71號","台南市中西區民權路二段4巷13號"]
+        "f_address":["台南市中西區民權路二段71號","台南市中西區民權路二段4巷13號"],
+        "f_link":["https://goo.gl/maps/ekJ4wtxmXSr","https://goo.gl/maps/1hHSK8juNaC2"],
+        "f_image": ["http://d.blog.xuite.net/d/3/6/9/22570605/blog_1611133/txt/27676926/5.jpg","https://pic.pimg.tw/ku5553221/1442413960-2821101880_l.jpg"],
+        "time": 1
+    },
+    {
+        "question": "赤崁樓",
+        "introduce": "赤崁樓，又作赤嵌樓，位於臺灣臺南市的中西區。前身為1653年荷治時期興建之歐式建築普羅民遮城，紅毛樓，在地人稱為番仔樓，曾為全島統治中心，至清代已傾圮，僅留部分殘蹟。",
+        "attraction": ["吳園藝文中心","天后宮"],
+        "a_address":["台南市中西區民權路二段30號","台南市中西區永福路二段227巷18號"],
+        "food": ["再發號肉粽","甘單咖啡"],
+        "f_address":["台南市中西區民權路二段71號","台南市中西區民權路二段4巷13號"],
+        "f_link":["https://goo.gl/maps/ekJ4wtxmXSr","https://goo.gl/maps/1hHSK8juNaC2"],
+        "f_image": ["http://d.blog.xuite.net/d/3/6/9/22570605/blog_1611133/txt/27676926/5.jpg","https://pic.pimg.tw/ku5553221/1442413960-2821101880_l.jpg"],
+        "time": 2
+    },
+    {
+        "question": "天后宮",
+        "introduce": "大天后宮，舊稱東寧天妃宮，位於臺灣臺南市中西區，爲主祀媽祖的廟宇，此外也是中華民國國定古蹟。該廟宇原址本為明朝寧靖王朱術桂所居住的寧靖王府邸，後來在寧靖王捨宅之後轉變成媽祖廟。舊有方志多記載是1684年由施琅入臺後改為媽祖廟，但近來學者指出明鄭時期東寧一地已有天妃宮，寧靖王捨宅的對象即是當時的住持僧聖知",
+        "attraction": ["吳園藝文中心","赤崁樓"],
+        "a_address":["台南市中西區民權路二段30號","台南市中西區民族路二段212號"],
+        "food": ["再發號肉粽","甘單咖啡"],
+        "f_address":["台南市中西區民權路二段71號","台南市中西區民權路二段4巷13號"],
+        "f_link":["https://goo.gl/maps/ekJ4wtxmXSr","https://goo.gl/maps/1hHSK8juNaC2"],
+        "f_image": ["http://d.blog.xuite.net/d/3/6/9/22570605/blog_1611133/txt/27676926/5.jpg","https://pic.pimg.tw/ku5553221/1442413960-2821101880_l.jpg"],
+        "time": 1
+    },
+    {
+        "question": "再發號肉粽",
+        "introduce": "再發號肉粽",
+        "time": 1
+    },
+    {
+        "question": "甘單咖啡",
+        "introduce": "甘單咖啡",
+        "time": 2
     },
     {
         "question": "安平古堡",
@@ -21,6 +91,44 @@
         "attraction": ["安平樹屋","安平老街"],
         "a_address":["台南市安平區","台南市安平區延平街"],
         "food": ["文章牛肉湯","同記安平豆花"],
-        "f_address":["台南市安平區安平路590號","台南市安平區安北路433號"]
+        "f_address":["台南市安平區安平路590號","台南市安平區安北路141-6號"],
+        "f_link":["https://goo.gl/maps/kgHoDVdahz12","https://goo.gl/maps/Ba8JyRjBxR32"],
+        "f_image": ["https://pic.pimg.tw/hurainjay/1448340589-4086232284_l.jpg","https://jatravelstory.com/wp-content/uploads/pixnet/1019001747_l.jpg"],
+        "time": 2
+    },
+    {
+        "question": "安平樹屋",
+        "introduce": "安平樹屋是臺灣臺南市安平區的知名景點，位於德記洋行的隔壁。該建築原本是德記洋行的倉庫，依據門楣花崗石、窗框基石與木屋架構等判定約建於19世紀末，此外所使用的磚頭來自熱蘭遮城。以建築物與榕樹共生為其特色。",
+        "attraction": ["安平古堡","安平老街"],
+        "a_address":["台南市安平區國勝路82號","台南市安平區延平街"],
+        "food": ["文章牛肉湯","同記安平豆花"],
+        "f_address":["台南市安平區安平路590號","台南市安平區安北路141-6號"],
+        "f_link":["https://goo.gl/maps/kgHoDVdahz12","https://goo.gl/maps/Ba8JyRjBxR32"],
+        "f_image": ["https://pic.pimg.tw/hurainjay/1448340589-4086232284_l.jpg","https://jatravelstory.com/wp-content/uploads/pixnet/1019001747_l.jpg"],
+        "time": 1
+    },
+    {
+        "question": "安平老街",
+        "introduce": "安平老街位於安平古堡東邊，為三百年前荷蘭人於台南安平地區所建的第一條街道，有「台灣街」及「石板街」的稱號，又為「開台第一街」及「延平老街」，延平街上所興建的房子多以土角厝、矮紅磚屋以及西式洋樓為主，其中洋樓的部份多以白粉牆及洗石子牆面，而欄杆、柱頭和屋簷上所裝飾的浮雕皆為手工打造。",
+        "attraction": ["安平古堡","安平樹屋"],
+        "a_address":["台南市安平區國勝路82號","台南市安平區"],
+        "food": ["文章牛肉湯","同記安平豆花"],
+        "f_address":["台南市安平區安平路590號","台南市安平區安北路141-6號"],
+        "f_link":["https://goo.gl/maps/kgHoDVdahz12","https://goo.gl/maps/Ba8JyRjBxR32"],
+        "f_image": ["https://pic.pimg.tw/hurainjay/1448340589-4086232284_l.jpg","https://jatravelstory.com/wp-content/uploads/pixnet/1019001747_l.jpg"],
+        "time": 2
+    },
+    {
+        "question": "文章牛肉湯",
+        "introduce": "文章牛肉湯",
+        "time": 1
+    },
+    {
+        "question": "同記安平豆花",
+        "introduce": "同記安平豆花",
+        "time": 1
     }
+    
+    
+    
 ]
