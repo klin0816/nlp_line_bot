@@ -55,6 +55,8 @@ target_port = 2001
 
 Attraction = ["附近","周圍","景點","周邊"]
 Food = ["美食","吃","好吃","食物"]
+Time = ["小時"]
+Intro = ["介紹"]
 
 app = Flask(__name__)
 
@@ -72,9 +74,8 @@ if channel_access_token is None:
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
-
-@app.route("/callback", methods=['POST'])
-def callback():
+@app.route("/webhook", methods=['POST'])
+def webhook():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -158,11 +159,14 @@ def message_text(event):
     #state = 2 = food
     #state = 3 = line
     state = 0
-
     segment_list = [i[0] for i in seg(event.message.text)] # send input line in CKIP and save result in segment_list
     print(segment_list)
     for segment in segment_list:
-        if segment in Food:
+        if segment in Intro:
+            state = 4
+        elif segment in Time:
+            state = 3
+        elif segment in Food:
             state = 2
         elif segment in Attraction:
             state = 1
@@ -174,18 +178,34 @@ def message_text(event):
     BM25 = cal_BM25(data, segment_list) # calculate the acc score between segment_list with every question(question_word)
     BM25_max= BM25.index(max(BM25)) # find the index of list which acc score is the best
     if state == 0:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='介紹： ' + data[BM25_max]['introduce'])
+        a = str(data[BM25_max]['question'])
+        b = str(data[BM25_max]['address'])
+        c = str(data[BM25_max]['link'])
+        image = str(data[BM25_max]['image'])
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                thumbnail_image_url=image,
+                title = a,
+                text = b,
+                actions=[
+                    PostbackAction(
+                        label='介紹',
+                        text=data[BM25_max]['question']+'介紹',
+                        data=' '
+                    ),
+                    URIAction(
+                        label='Google Maps',
+                        uri = c
+                    )
+                ]
+            )
         )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
     elif state == 1:
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='景點： ' + data[BM25_max]['attraction'][rand])
-        )
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='地址： ' + data[BM25_max]['a_address'][rand])
+            TextSendMessage(text='景點： ' + data[BM25_max]['attraction'][rand] + '\n地址： ' + data[BM25_max]['a_address'][rand])
         )
     elif state == 2:
         a = str(data[BM25_max]['f_image'][0])
@@ -200,12 +220,42 @@ def message_text(event):
         ])
         template_message = TemplateSendMessage(
             alt_text='Carousel alt text', template=carousel_template)
-        line_bot_api.reply_message(event.reply_token, template_message)   
-        
-        '''line_bot_api.reply_message(
+        line_bot_api.reply_message(event.reply_token, template_message)
+    elif state == 3:
+        time_request = 0
+        for i in range(len(segment_list)):
+             if segment_list[i] in Time:
+                  time_request = int(segment_list[i-1])
+        time_left = time_request
+        place = data[BM25_max]['question']
+        time_left -= int(data[BM25_max]['time'])
+        cycle = 0
+        while time_left != 0:
+            if time_left - int(data[BM25_max]['f_time'][cycle]) >= 0:
+                place = place + ' -> ' + data[BM25_max]['food'][cycle]
+                time_left -= int(data[BM25_max]['f_time'][cycle])
+                cycle += 1
+                print(place)
+                print(time_left)
+            if time_left - int(data[BM25_max]['a_time'][cycle]) >= 0:
+                place = place + ' -> ' + data[BM25_max]['attraction'][cycle]
+                time_left -= int(data[BM25_max]['a_time'][cycle])
+                cycle += 1
+                print(place)
+                print(time_left)
+            if(cycle >= 1):
+                break
+        line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='美食： ' + data[BM25_max]['food'][rand])
-        )'''
+            TextSendMessage(text=place)
+        )
+    elif state == 4:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='介紹： ' + data[BM25_max]['introduce'])
+        )
+
+
 
 if __name__ == "__main__":
     arg_parser = ArgumentParser(
